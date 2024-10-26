@@ -1,17 +1,27 @@
 {
-  "name": "matrix-hasher",
-  "version": "1.0.0",
+  "name": "matrix-hasher.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZiyaKolcu/matrix-hasher.js"
+  },
+  "version": "0.0.1",
+  "description": "Matrix-Hasher.js is a JavaScript library that implements matrix-based hashing for secure password handling.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "tsc && node dist/index.js"
+    "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "Matrix",
+    "based",
+    "password",
+    "hashing",
+    "TypeScript",
+    "JavaScript",
+    "library"
+  ],
+  "author": "Ziya Kolcu",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.8.1",
     "ts-node": "^10.9.2",
