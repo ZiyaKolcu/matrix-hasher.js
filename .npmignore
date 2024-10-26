@@ -1,0 +1,4 @@
+src
+*.ts
+*.json
+node_modules
