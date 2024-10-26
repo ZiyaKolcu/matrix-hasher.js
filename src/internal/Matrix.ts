@@ -1,4 +1,4 @@
-class Matrix {
+export class Matrix {
   private rows: number;
   private columns: number;
   private matrix: number[][];
@@ -17,11 +17,24 @@ class Matrix {
     return matrix;
   }
 
+  public addValueToCell(row: number, col: number, value: number): void {
+    if (row >= 0 && row < this.rows && col >= 0 && col < this.columns) {
+      this.matrix[row][col] += value;
+    }
+  }
   public getMatrix(): number[][] {
     return this.matrix;
   }
 
   public printMatrix(): void {
     console.log(this.matrix);
+  }
+
+  public getRows(): number {
+    return this.rows;
+  }
+
+  public getColumns(): number {
+    return this.columns;
   }
 }
