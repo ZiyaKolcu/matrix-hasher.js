@@ -2,6 +2,22 @@
 
 Matrix-Hasher.js is a JavaScript library that implements matrix-based hashing for secure password handling. The library provides an easy-to-use interface with three main functions and has no external dependencies.
 
+## Installation
+
+To install the package, you can use npm or yarn. Run the following command in your terminal:
+
+### Using npm
+
+```bash
+npm install matrix-hasher.js
+```
+
+### Using yarn
+
+```bash
+yarn add matrix-hasher.js
+```
+
 ## Features
 
 - **Matrix-Based Hashing**: Utilizes matrix operations for secure password hashing.
@@ -27,34 +43,42 @@ To use the library, you need to generate a `keyMatrix`. It must be a square matr
    ```
 
 3. **`keyMatrix` Generation**
-   
+
    ```javascript
    require('dotenv').config();
    const { MatrixHasher } = require('matrix-hasher.js');
-   
+
    const dimension = parseInt(process.env.DIMENSION, 10);
-   const keyMatrix = MatrixHasher.genKeyMatrix(process.env.KEY_MATRIX_SEED, dimension);
+   const keyMatrix = MatrixHasher.genKeyMatrix(
+     process.env.KEY_MATRIX_SEED,
+     dimension
+   );
    console.log(keyMatrix);
    ```
 
 ### Data Hashing
 
-   ```javascript
-   require('dotenv').config();
-   const { MatrixHasher } = require('matrix-hasher.js');
-   
-   const dimension = parseInt(process.env.DIMENSION, 10);
-   const hashedData = MatrixHasher.matrixHash('secret', keyMatrix, dimension);
-   console.log(hashedData);
-   ```
+```javascript
+require('dotenv').config();
+const { MatrixHasher } = require('matrix-hasher.js');
+
+const dimension = parseInt(process.env.DIMENSION, 10);
+const hashedData = MatrixHasher.matrixHash('secret', keyMatrix, dimension);
+console.log(hashedData);
+```
 
 ### Hashed Data Comparing
-   ```javascript
-   require('dotenv').config();
-   const { MatrixHasher } = require('matrix-hasher.js');
-   
-   const dimension = parseInt(process.env.DIMENSION, 10);
-   const isMatch = MatrixHasher.compare('secret', hashedData, keyMatrix, dimension);
-   console.log(isMatch);
-   ```
 
+```javascript
+require('dotenv').config();
+const { MatrixHasher } = require('matrix-hasher.js');
+
+const dimension = parseInt(process.env.DIMENSION, 10);
+const isMatch = MatrixHasher.compare(
+  'secret',
+  hashedData,
+  keyMatrix,
+  dimension
+);
+console.log(isMatch);
+```
