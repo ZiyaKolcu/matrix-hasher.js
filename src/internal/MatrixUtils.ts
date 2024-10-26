@@ -27,6 +27,29 @@ export class MatrixUtils {
 
     return matrix;
   }
+  static numberToMatrix(num: number): Matrix {
+    const numString = num.toString(); 
+    const arr = numString.split('').map((digit) => parseInt(digit, 10)); 
+
+    const matrix = new Matrix(3, 3);
+    let row = 0;
+    let col = 0;
+
+    arr.forEach((value) => {
+      matrix.addValueToCell(row, col, value);
+      col++;
+
+      if (col >= matrix.getMatrix()[row].length) {
+        col = 0;
+        row++;
+        if (row >= matrix.getMatrix().length) {
+          row = 0;
+        }
+      }
+    });
+
+    return matrix;
+  }
   static matrixToString(matrix: Matrix): string {
     let result = '';
     const matrixData = matrix.getMatrix();
