@@ -2,31 +2,29 @@ import { Matrix } from './Matrix';
 
 export class MatrixUtils {
   static stringToMatrix(data: string, dimension: number): Matrix {
-    let result = '';
-    for (let i = 0; i < data.length; i++) {
-      result += data.charCodeAt(i);
-    }
-    const arr = result.split('').map((num) => parseInt(num, 10));
+    const unicodeValues = [...data].map((char) => char.charCodeAt(0));
 
     const matrix = new Matrix(dimension, dimension);
+
     let row = 0;
     let col = 0;
 
-    arr.forEach((value) => {
-      matrix.addValueToCell(row, col, value);
-      col++;
+    unicodeValues.forEach((value) => {
+        matrix.addValueToCell(row, col, value);
+        col++;
 
-      if (col >= matrix.getMatrix()[row].length) {
-        col = 0;
-        row++;
-        if (row >= matrix.getMatrix().length) {
-          row = 0;
+        if (col >= matrix.getMatrix()[row].length) {
+            col = 0;
+            row++;
+            if (row >= matrix.getMatrix().length) {
+                row = 0; 
+            }
         }
-      }
     });
 
     return matrix;
-  }
+}
+
   static numberToMatrix(num: number, dimension: number): Matrix {
     const numString = num.toString();
     const arr = numString.split('').map((digit) => parseInt(digit, 10));
